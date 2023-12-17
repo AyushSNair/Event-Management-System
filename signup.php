@@ -1,3 +1,28 @@
+<?php
+$showAlert = false;
+$showError = false;
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+include 'partials/_dbconnect.php';
+
+$username = $_POST["username"];
+$password = $_POST["password"];
+$cpassword = $_POST["cpassword"];
+$exists=false;
+if(($password == $cpassword) && $exists==false){
+$sql = "INSERT INTO `users` ( `username`,`password`, `dt`) VALUES ('$username' , '$password',current_timestamp())";
+$result = mysqli_query($conn, $sql);
+if ($result){
+  $showAlert = true;
+}
+}
+else{
+  $showError = "Passwords do not match";
+}
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,6 +36,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+
 
 </style>
 
@@ -27,13 +55,53 @@
   <li class="nav-item">
     <a class="nav-link" href="#">Link</a>
   </li>
+  </ul>
+
+  <?php
+  if($showAlert){
+  echo' 
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong>Your account is now created. You can login now.
   
-</ul>
+</div>';
+}
+
+if($showError){
+  echo' 
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error!</strong>'.$showError.'
+  
+</div>';
+}
+?>
 </div>
+
  
 <div class="container">
 
 <h1 class="text-center" >Sign Up To Our Website Now!</h1>
+
+<form  action="/loginsystem/signup.php" method="post">
+  <div class="form-group col-md-6">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username"  name="username" aria-describedby="emailHelp" placeholder="Enter Username">
+   
+  </div>
+  <div class="form-group col-md-6">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="cpassword">Confirm Password</label>
+    <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Password">
+    <small id="emailHelp" class="form-text text-muted">Make sure to type the same password.</small>
+  </div>
+
+ 
+  
+  <button type="submit" class="btn btn-primary">Sign-Up</button>
+</form>
 
 </div>
     
