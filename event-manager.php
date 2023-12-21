@@ -78,9 +78,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   color: white;
   border-radius: 6px;
   border-style: solid;
-  margin-left: 15px;
-  margin-top: 8px;
-
+  margin-left: 55px;
+  margin-top: 2px;
+   transition: opacity 0.15s;
 }
 
 .overlay{
@@ -96,10 +96,29 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 }
 
 .add-data-form button{
-  background-color: black;
+ background-color: black;
   color: white;
   padding: 10px 15px;
- 
+ border-radius: 4px;
+ border-style: solid;
+ transition: opacity 0.15s;
+}
+
+.add-data-form button:hover{
+  opacity: 0.8;
+}
+
+.add-data-form button:active{
+  background-color: green;
+}
+
+.btn-add-data:hover{
+ opacity: 0.8;
+
+}
+
+.btn-add-data:active{
+  opacity: 0.4;
 }
 
 .showoverlay{
@@ -134,26 +153,64 @@ transition : 2s;
 
 .add-data-form span{
   position: absolute;
-  color: white;
+  color: black;
  padding-left:10px;
  padding-right:10px;
   right: 2px;
   top: 2px;
   widh: 30px;
   height: 30px;
-  background-color: red;
+  background-color: white;
   text-align: center;
   
   border-radius: 4px;
+  transition: 0.5s;
+  transition: opacity 0.5s;
+}
+
+.add-data-form span:hover{
+  background-color: red;
+}
+
+.add-data-form span:active{
+  
+  opacity: 0.8;
 }
 
 .span-class{
   cursor: pointer;
+  
 }
 
 .welcome-style{
-  margin-left: 15px;
-  margin-top: 4px;
+  margin-left: 55px;
+  margin-top: 8px;
+
+}
+
+.nav-logout{
+  color: white;
+transition: opacity 0.15s;
+
+}
+
+.nav-logout:hover{
+  color:black;
+
+}
+
+.logout-button:hover{
+  background-color: red;
+}
+
+.logout-button{
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 0.5px;
+  margin-right: 10px;
+  
+  background-color: black;
+  transition: background-color 0.15s;
 }
     </style>
   </head>
@@ -162,7 +219,7 @@ transition : 2s;
   <div class="top">
 pfp
 <h1 class="top-text"> EVENT-MANAGER</h1>
-<a href="/loginsystem/logout.php" >logout</a>
+<button class="logout-button"><a class="nav-logout" href="/loginsystem/logout.php" >logout</a></button>
 </div> 
 
 <?php
@@ -238,7 +295,7 @@ pfp
 
 
   
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="submit-btn">Submit</button>
 </form>
 </div>
 
@@ -261,7 +318,7 @@ pfp
 <td>Coordinator's Name</td>
 <td>Event Budget</td>
 <td>Edit</td>
-<td> Delete></td>
+<td> Delete</td>
   </tr>
 
   <tr>
