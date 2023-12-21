@@ -12,6 +12,9 @@ $division = $_POST["division"];
 $password = $_POST["password"];
 $cpassword = $_POST["cpassword"];
 $exists=false;
+
+
+
 if(($password == $cpassword) && $exists==false){
 $sql = "INSERT INTO `userk` ( `username`,`rollno`,`branch`,`semester`,`division`,`password`, `dt`) VALUES ('$username','$roll' , '$branch','$semester','$division','$password',current_timestamp())";
 $result = mysqli_query($conn, $sql);
@@ -39,6 +42,8 @@ else{
 .nav{
   display: flex;
   justify-content: space-between;
+height: 50px;
+align-items: center;
 }
 
 .flex-sem{
@@ -52,7 +57,13 @@ else{
   width: 645px;
 }
 
+.sign-nav-flex{
+  background-color: orange;
+}
 
+.nav-link {
+  color: black;
+ }
 </style>
 
   </head>
@@ -60,14 +71,16 @@ else{
 <div class=sign-nav-flex> 
   <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5500/Main-Menu.html">Back To Main-Menu</a>
+    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5500/Main-Menu.html"><strong>Back To Main-Menu</strong></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="http://localhost/loginsystem/login.php">Go To Login Page</a>
+    <a class="nav-link" href="http://localhost/loginsystem/login.php"><strong>Go To Login Page</strong></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
+          <a class="nav-link disabled" aria-disabled="true"
+            ><strong>Event Manager(Disabled)</strong></a
+          >
+        </li>
   </ul>
 
   <?php

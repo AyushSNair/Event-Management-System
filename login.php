@@ -40,13 +40,33 @@ else{
 .nav{
   display: flex;
   justify-content: space-between;
+  background-color: orange;
 }
 
 .semester-class{
   width: 645px;
 }
+.nav-link{
+  color: black;
+}
+.text-center{
+  margin-top: 20px;
+}
 
+.form-group{
+  margin-top: 25px;
+}
 
+.form-outline{
+  margin-top: 25px;
+}
+
+.semester-class{
+  margin-top: 25px;
+}
+.btn {
+  margin-top: 25px;
+}
 </style>
 
   </head>
@@ -54,14 +74,16 @@ else{
 <div class=sign-nav-flex> 
   <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5500/Main-Menu.html">Back To Main-Menu</a>
+    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5500/Main-Menu.html"><strong>Back To Main-Menu</strong></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="http://localhost/loginsystem/signup.php">Go To Sign-Up Page</a>
+    <a class="nav-link" href="http://localhost/loginsystem/signup.php"><strong>Go To Sign-Up Page</strong></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
+          <a class="nav-link disabled" aria-disabled="true"
+            ><strong>Event Manager(Disabled)</strong></a
+          >
+        </li>
   </ul>
 
   <?php
