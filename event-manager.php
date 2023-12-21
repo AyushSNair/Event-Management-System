@@ -282,6 +282,11 @@ while($row = mysqli_fetch_assoc($result))
   <input type="hidden" name="sno" value="<?php echo $row['sno'] ?>"> 
   <td> <input type="submit" name="edit" class="btn btn-success" value="EDIT">   </td>
    
+
+  <form action="delete.php" method="post">
+  <input type="hidden" name="sno" value="<?php echo $row['sno'] ?>">  
+  <td><input type="submit" name="delete" class="btn btn-danger" value="Delete"></td> 
+ </form>
 </form>
 
 
