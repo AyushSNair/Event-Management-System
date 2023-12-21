@@ -162,7 +162,7 @@ transition : 2s;
   <div class="top">
 pfp
 <h1 class="top-text"> EVENT-MANAGER</h1>
-logout
+<a href="/loginsystem/logout.php" >logout</a>
 </div> 
 
 <?php
@@ -261,6 +261,7 @@ logout
 <td>Coordinator's Name</td>
 <td>Event Budget</td>
 <td>Edit</td>
+<td> Delete></td>
   </tr>
 
   <tr>
@@ -281,7 +282,7 @@ while($row = mysqli_fetch_assoc($result))
   <form action="updatedata.php" method="post">
   <input type="hidden" name="sno" value="<?php echo $row['sno'] ?>"> 
   <td> <input type="submit" name="edit" class="btn btn-success" value="EDIT">   </td>
-   
+ </form>
 
   <form action="delete.php" method="post">
   <input type="hidden" name="sno" value="<?php echo $row['sno'] ?>">  
