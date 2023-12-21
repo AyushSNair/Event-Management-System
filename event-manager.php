@@ -12,6 +12,8 @@ $eventVenue = $_POST["eventVenue"];
 $coordinatorName = $_POST["coordinatorName"];
 $eventBudget = $_POST["eventBudget"];
 
+
+
 $exists = false; 
  if($exists == false){
   $sql = "INSERT INTO `event140` (`nameofstudent`, `eventname`,`eventDate`,`eventTime`, `eventVenue`, `coordinatorName`, `eventBudget`) VALUES ('$nameofstudent', '$eventname','$eventDate','$eventTime', '$eventVenue', '$coordinatorName','$eventBudget')";
@@ -23,9 +25,24 @@ $exists = false;
  }
 }
 
+require_once('partials/_eventconnect.php');
+$query = "select * from event140";
+$result = mysqli_query($conn,$query);
+
+
+
+
 ?>
 
+<?php
+session_start();
 
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+  header("location: login.php");
+  exit;
+}
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -62,7 +79,7 @@ $exists = false;
   border-radius: 6px;
   border-style: solid;
   margin-left: 15px;
-  margin-top: 20px;
+  margin-top: 8px;
 
 }
 
@@ -96,7 +113,7 @@ z-index: 1;
   border-radius: 8px;
   background-color: white;
   position: absolute;
-  z-index: 3;
+  z-index: 9;
   left: 50%;
   top: -50%;
   transform: translate(-50%,-50%);
@@ -133,6 +150,11 @@ transition : 2s;
 .span-class{
   cursor: pointer;
 }
+
+.welcome-style{
+  margin-left: 15px;
+  margin-top: 4px;
+}
     </style>
   </head>
   <body >
@@ -154,6 +176,14 @@ logout
 
 
 ?>
+
+
+<div class="welcome-style">
+  <h4 >
+    Welcome - <?php  echo$_SESSION['username']?>
+  </h4>
+</div>
+
 
   <button class="btn-add-data" onclick="showModal()" >Add Data</button>
 
@@ -217,11 +247,12 @@ logout
 <div class="col">
   <div class="card mt-5">
     <div class="class-header">
-      <h2 class=" display-6 text-center" color: white; >Fetch Data From Database in PHP</h2>
+      <h2 class=" display-6 text-center" color: white; >Event Details</h2>
 </div>
 <div class="card-body">
 <table class="table table-bordered text-center">
   <tr class="bg-dark text-white">
+  <td>Sr.No.</td>   
 <td>Name Of Student</td>
 <td>Event Name</td>
 <td>Event Date</td>
@@ -229,17 +260,39 @@ logout
 <td>Event Venue</td>
 <td>Coordinator's Name</td>
 <td>Event Budget</td>
+<td>Edit</td>
   </tr>
 
   <tr>
-<td>Name Of Student</td>
-<td>Event Name</td>
-<td>Event Date</td>
-<td>Event Time</td>
-<td>Event Venue</td>
-<td>Coordinator's Name</td>
-<td>Event Budget</td>
-  </tr>
+    <?php
+
+while($row = mysqli_fetch_assoc($result))
+ {
+?>
+  <td><?php echo $row['sno']; ?></td>
+  <td><?php echo $row['nameofstudent']; ?></td>
+  <td><?php echo $row['eventname']; ?></td>
+  <td><?php echo $row['eventDate']; ?></td>
+  <td><?php echo $row['eventTime']; ?></td>
+  <td><?php echo $row['eventVenue']; ?></td>
+  <td><?php echo $row['coordinatorName']; ?></td>
+  <td><?php echo $row['eventBudget']; ?></td>
+
+  <form action="updatedata.php" method="post">
+  <input type="hidden" name="sno" value="<?php echo $row['sno'] ?>"> 
+  <td> <input type="submit" name="edit" class="btn btn-success" value="EDIT">   </td>
+   
+</form>
+
+
+
+</tr>
+<?php
+ }
+
+?>
+
+ 
 </div>
 </div>
 </div>
