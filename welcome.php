@@ -21,7 +21,19 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
     <style>
 
-      
+body {
+        background-color: whitesmoke;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(
+            rgba(0, 0, 50, 0.8),
+            rgba(0, 0, 50, 0.8)
+          ),
+          url(Corporate-Event-Planning.jpg);
+        background-position: center;
+        background-size: cover;
+        position: relative;
+      } 
 
 .nav{
   display: flex;
@@ -37,18 +49,36 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
 .top{
   display: flex;
- background-color: orange;
+ background-color: black;
  height: 100px;
  justify-content: space-between;
  align-items: center;
+ color: white;
 }
 
 .top-text{
   
 }
 
+.button{
+  border-style: solid;
+  margin-left: 628px;
+  padding: 20px;
+  border-radius: 20px;
+}
+.text-center{
+  margin-top: 200px;
+  color: white;
+}
 
+.link{
+  color: black;
+}
 
+.log{
+  color: white;
+  margin-right: 25px;
+}
     </style>
   </head>
   <body>
@@ -56,7 +86,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 <div class="top">
 pfp
 <h1 class="top-text"> EVENT-MANAGER</h1>
-logout
+<a class="log" href="/loginsystem/logout.php"><strong>logout</strong></a>
 </div> 
 
 
@@ -69,7 +99,7 @@ logout
 
 <div class="flex">..</div>
 
-<div><button><a href="http://localhost/loginsystem/event-manager.php">Go To Criteria</a></button></div>
+<div><button class="button"><a class="link" href="http://localhost/loginsystem/event-manager.php"><b>Go To Campus Event-Manager</b></a></button></div>
    
   
 
