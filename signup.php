@@ -15,17 +15,23 @@ $exists=false;
 
 
 
-if(($password == $cpassword) && $exists==false){
+if(($password == $cpassword) && ($username = $username) && ($roll == $roll) && ($branch == $branch) && ($semester == $semester) && ($division== $division ) && $exists==false){
 $sql = "INSERT INTO `userk` ( `username`,`rollno`,`branch`,`semester`,`division`,`password`, `dt`) VALUES ('$username','$roll' , '$branch','$semester','$division','$password',current_timestamp())";
 $result = mysqli_query($conn, $sql);
 if ($result){
   $showAlert = true;
 }
 }
+
+else if(($password != $cpassword) && ($username = $username) && ($roll == $roll) && ($branch == $branch) && ($semester == $semester) && ($division== $division ) && $exists==false){
+  $showError = "Passwords Do Not Match";
+}
+
 else{
-  $showError = "Passwords do not match";
+  $showError = "Please Enter All Details";
 }
 }
+
 ?>
 
 
@@ -68,7 +74,7 @@ align-items: center;
 }
 
 .semester-class{
-  width: 645px;
+  width: 448px;
 }
 
 .sign-nav-flex{
@@ -92,6 +98,10 @@ align-items: center;
  .bold-text{
   color: white;
  }
+
+ .form-class{
+  padding-left: 400px;
+ }
 </style>
 
   </head>
@@ -110,7 +120,7 @@ align-items: center;
           >
         </li>
   </ul>
-
+<p></p>
   <?php
   if($showAlert){
   echo' 
@@ -135,7 +145,7 @@ if($showError){
 
 <h1 class="text-center" >Sign Up To Our Website Now!</h1>
 
-<form  action="/loginsystem/signup.php" method="post">
+<form  action="/loginsystem/signup.php" method="post" class="form-class">
   <div class="form-group col-md-6">
     <label for="username"><b class="bold-text">Username</b></label>
     <input type="text" class="form-control" id="username"  name="username"
@@ -156,7 +166,7 @@ if($showError){
   <input type="text" id="typeText" class="form-control" name="branch" placeholder="Enter Branch" />
   
 </div>
- 
+ <p></p>
 <div class="semester-class">
   <label><b class="bold-text">Semester</b></label>
 <select class="form-select " aria-label="Default select example" name="semester" >
@@ -171,7 +181,7 @@ if($showError){
   <option value="8">Semester8</option>
 </select>
 </div>
-
+<p></p>
 <div class="semester-class">
   <label><b class="bold-text">Division</b></label>
 <select class="form-select " aria-label="Default select example" name="division" >
@@ -183,7 +193,7 @@ if($showError){
 </div>
 
 
-
+<p></p>
   <div class="form-group col-md-6">
     <label for="password"><b class="bold-text">Password</b></label>
     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
@@ -202,7 +212,7 @@ if($showError){
 </form>
 
 </div>
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
