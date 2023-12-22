@@ -79,12 +79,17 @@ body {
   color: white;
   margin-right: 25px;
 }
+
+.fcrit-logo{
+  width: 60px;
+  margin-left: 20px;
+}
     </style>
   </head>
   <body>
 
 <div class="top">
-pfp
+<img class="fcrit-logo" src="fcritlogo.png">
 <h1 class="top-text"> EVENT-MANAGER</h1>
 <a class="log" href="/loginsystem/logout.php"><strong>logout</strong></a>
 </div> 

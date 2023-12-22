@@ -214,12 +214,17 @@ transition: opacity 0.15s;
   background-color: black;
   transition: background-color 0.15s;
 }
+
+.fcrit-logo{
+  width: 60px;
+  margin-left: 20px;
+}
     </style>
   </head>
   <body >
     
   <div class="top">
-pfp
+<img class="fcrit-logo" src="fcritlogo.png">
 <h1 class="top-text"> EVENT-MANAGER</h1>
 <button class="logout-button"><a class="nav-logout" href="/loginsystem/logout.php" >logout</a></button>
 </div> 
