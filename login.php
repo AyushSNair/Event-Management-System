@@ -37,18 +37,35 @@ else{
     <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <style>
+   body {
+        background-color: whitesmoke;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(
+            rgba(0, 0, 50, 0.8),
+            rgba(0, 0, 50, 0.8)
+          ),
+          url(Corporate-Event-Planning.jpg);
+        background-position: center;
+        background-size: cover;
+        position: relative;
+      }
 .nav{
   display: flex;
   justify-content: space-between;
-  background-color: orange;
+  background-color: black;
+  height: 100px;
 }
 
 .semester-class{
   width: 645px;
 }
+
 .nav-link{
-  color: black;
+  color: white;
+  padding-top: 30px;
 }
+
 .text-center{
   margin-top: 20px;
 }
@@ -64,13 +81,25 @@ else{
 .semester-class{
   margin-top: 25px;
 }
+
 .btn {
   margin-top: 25px;
+}
+.text-center{
+  color: white;
+}
+
+.event{
+  color: white;
+}
+
+.bold-text{
+  color: white;
 }
 </style>
 
   </head>
-  <body>
+  <body >
 <div class=sign-nav-flex> 
   <ul class="nav">
   <li class="nav-item">
@@ -81,8 +110,8 @@ else{
   </li>
   <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true"
-            ><strong>Event Manager(Disabled)</strong></a
-          >
+            ><strong class="event">Event Manager(Disabled)</strong></a
+            >
         </li>
   </ul>
 
@@ -111,25 +140,25 @@ if($showError){
 <h1 class="text-center" >Login Below</h1>
 
 <form  action="/loginsystem/login.php" method="post">
-  <div class="form-group col-md-6">
-    <label for="username">Username</label>
+  <div class="form-group col-md-6 ">
+    <label for="username"><b class="bold-text">Username</b></label>
     <input type="text" class="form-control" id="username"  name="username" aria-describedby="emailHelp" placeholder="Enter Username">
    
   </div>
   <div class="form-group col-md-6">
-    <label for="password">Password</label>
+    <label for="password"><b class="bold-text" >Password</b></label>
     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
   </div>
 
   <div class="form-outline col-md-6" data-mdb-input-init>
-<label class="form-label" for="typeText">Branch</label>
+<label class="form-label" for="typeText"><b class="bold-text">Branch</b></label>
   <input type="text" id="typeText" class="form-control" name="branch" placeholder="Enter Branch" />
   
 </div>
 
 
 <div class="semester-class">
-  <label>Division</label>
+  <label><b class="bold-text">Division</b></label>
 <select class="form-select " aria-label="Default select example" name="division" >
   <option selected>--Division--</option>
   <option value="A">A</option>
