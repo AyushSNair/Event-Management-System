@@ -57,11 +57,13 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <title>Event-Manager</title>
 
     <style>
-
+body{
+  background-color: rgb(250,250,220);
+}
       
 .top{
   display: flex;
- background-color: orange;
+ background-color: #ADD8E6;
  height: 100px;
  justify-content: space-between;
  align-items: center;
