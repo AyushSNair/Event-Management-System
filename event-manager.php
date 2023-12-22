@@ -5,7 +5,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   include 'partials/_eventconnect.php';
 
 $nameofstudent = $_POST["nameofstudent"];
-$eventname = $_POST["eventname"];
+$nameofevent = $_POST["nameofevent"];
 $eventDate = $_POST["eventDate"];
 $eventTime = $_POST["eventTime"];
 $eventVenue = $_POST["eventVenue"];
@@ -16,7 +16,7 @@ $eventBudget = $_POST["eventBudget"];
 
 $exists = false; 
  if($exists == false){
-  $sql = "INSERT INTO `event140` (`nameofstudent`, `eventname`,`eventDate`,`eventTime`, `eventVenue`, `coordinatorName`, `eventBudget`) VALUES ('$nameofstudent', '$eventname','$eventDate','$eventTime', '$eventVenue', '$coordinatorName','$eventBudget')";
+  $sql = "INSERT INTO `event140` (`nameofstudent`, `nameofevent`,`eventDate`,`eventTime`, `eventVenue`, `coordinatorName`, `eventBudget`) VALUES ('$nameofstudent', '$nameofevent','$eventDate','$eventTime', '$eventVenue', '$coordinatorName','$eventBudget')";
 
   $result = mysqli_query($conn, $sql);
   if ($result){
@@ -258,7 +258,7 @@ pfp
 
   <div class="form-group">
     <label for="nameofevent">Event Name</label>
-    <input type="text" class="form-control" id="nameofevent" aria-describedby="emailHelp" placeholder="Event Name" name="eventname">
+    <input type="text" class="form-control" id="nameofevent" aria-describedby="emailHelp" placeholder="Event Name" name="nameofevent">
     
   </div>
 
@@ -329,7 +329,7 @@ while($row = mysqli_fetch_assoc($result))
 ?>
   <td><?php echo $row['sno']; ?></td>
   <td><?php echo $row['nameofstudent']; ?></td>
-  <td><?php echo $row['eventname']; ?></td>
+  <td><?php echo $row['nameofevent']; ?></td>
   <td><?php echo $row['eventDate']; ?></td>
   <td><?php echo $row['eventTime']; ?></td>
   <td><?php echo $row['eventVenue']; ?></td>
@@ -343,6 +343,8 @@ while($row = mysqli_fetch_assoc($result))
 
   <form action="delete.php" method="post">
   <input type="hidden" name="sno" value="<?php echo $row['sno'] ?>">  
+ 
+
   <td><input type="submit" name="delete" class="btn btn-danger" value="Delete"></td> 
  </form>
 </form>
