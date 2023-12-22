@@ -39,6 +39,20 @@ else{
     <title>Sign-Up Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <style>
+body {
+        background-color: whitesmoke;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(
+            rgba(0, 0, 50, 0.8),
+            rgba(0, 0, 50, 0.8)
+          ),
+          url(Corporate-Event-Planning.jpg);
+        background-position: center;
+        background-size: cover;
+        position: relative;
+      }
+
 .nav{
   display: flex;
   justify-content: space-between;
@@ -58,11 +72,25 @@ align-items: center;
 }
 
 .sign-nav-flex{
-  background-color: orange;
+  background-color: black;
+  height: 100px;
 }
 
 .nav-link {
-  color: black;
+  color: white;
+  padding-top: 30px;
+ }
+
+ .event{
+  color: white;
+ }
+
+ .text-center{
+  color: white;
+ }
+
+ .bold-text{
+  color: white;
  }
 </style>
 
@@ -78,7 +106,7 @@ align-items: center;
   </li>
   <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true"
-            ><strong>Event Manager(Disabled)</strong></a
+            ><strong class="event">Event Manager(Disabled)</strong></a
           >
         </li>
   </ul>
@@ -109,14 +137,14 @@ if($showError){
 
 <form  action="/loginsystem/signup.php" method="post">
   <div class="form-group col-md-6">
-    <label for="username">Username</label>
+    <label for="username"><b class="bold-text">Username</b></label>
     <input type="text" class="form-control" id="username"  name="username"
     aria-describedby="emailHelp"  placeholder="Enter Username">
 </div>
 <p></p>
 
     <div class="form-group col-md-6">
-    <label class="form-label" for="typeNumber">Roll Number</label>
+    <label class="form-label" for="typeNumber"><b class="bold-text">Roll Number</b></label>
     <input type="number" id="typeNumber"  name="roll" class="form-control" placeholder = "Enter Roll Number"/>
     
 </div>
@@ -124,13 +152,13 @@ if($showError){
 <p></p>
 
 <div class="form-outline col-md-6" data-mdb-input-init>
-<label class="form-label" for="typeText">Branch</label>
+<label class="form-label" for="typeText"><b class="bold-text">Branch</b></label>
   <input type="text" id="typeText" class="form-control" name="branch" placeholder="Enter Branch" />
   
 </div>
  
 <div class="semester-class">
-  <label>Semester</label>
+  <label><b class="bold-text">Semester</b></label>
 <select class="form-select " aria-label="Default select example" name="semester" >
   <option selected>--Select Semester--</option>
   <option value="1">Semester1</option>
@@ -145,7 +173,7 @@ if($showError){
 </div>
 
 <div class="semester-class">
-  <label>Division</label>
+  <label><b class="bold-text">Division</b></label>
 <select class="form-select " aria-label="Default select example" name="division" >
   <option selected>--Division--</option>
   <option value="A">A</option>
@@ -157,15 +185,15 @@ if($showError){
 
 
   <div class="form-group col-md-6">
-    <label for="password">Password</label>
+    <label for="password"><b class="bold-text">Password</b></label>
     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
   </div>
   <p></p>
 
   <div class="form-group col-md-6">
-    <label for="cpassword">Confirm Password</label>
+    <label for="cpassword"><b class="bold-text">Confirm Password</b></label>
     <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Password">
-    <small id="emailHelp" class="form-text text-muted">Make sure to type the same password.</small>
+    <small id="emailHelp" class="form-text text-muted"><b class="bold-text">Make sure to type the same password.</b></small>
   </div>
 
  
