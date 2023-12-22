@@ -8,96 +8,118 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title></title>
+    <title>Update Data</title>
   </head>
   <body>
   <?php
-  $connection = mysqli_connect("localhost", "root", "Aryan@2004");
-  $db = mysqli_select_db($connection , 'event5022140');
+$connection = mysqli_connect("localhost","root","Aryan@2004");
+$db = mysqli_select_db($connection , 'event5022140' );
 
-  $sno = $_POST['sno'];
 
-  $query = "SELECT * FROM event140 WHERE sno='$sno' ";  
-  
-  $query_run = mysqli_query($connection, $query);
+$sno = $_POST['sno'];
 
-  if($query_run)
-  {
-    while($row = mysqli_fetch_array($query_run))
-    {
-     ?>
+$query = "SELECT * FROM event140 WHERE sno=$sno    ";
+
+$query_run = mysqli_query($connection , $query);
+
+if($query_run)
+{
+   while($row = mysqli_fetch_array($query_run))
+   {
+?>
 <div class="container">
 
-  <div class="jumbotron">
-    <h2>Update Event-Details</h2>
-     <hr>
+<div class="jumbotron">
+<h2>Update Data</h2>
+<hr>
 
-     <div class="add-data-form">
-  <form action="/loginsystem/event-manager.php" method="post">
-    <input type="hidden" name="sno" value="<?php echo $row['sno'] ?>">
-    <span class="span-class" onclick="closeModal()" >&times;</span>
+
+<form action="" method="post">
+  <input type = "hidden" name="sno" value="<?php echo $row['sno'] ?>">
   <div class="form-group">
-    <label for="nameofstudent">Name Of The Student</label>
-    <input type="text" class="form-control" value="<?php echo $row['nameofstudent'] ?>" id="nameofstudent" aria-describedby="emailHelp" placeholder="Name Of The Student" name="nameofstudent">
-    
+    <label for="nameofstudent">Name Of Student</label>
+    <input type="text" name="nameofstudent" class="form-control" value="<?php echo $row['nameofstudent'] ?>"  id="nameofstudent" placeholder="Enter your name">
   </div>
-
+  
 
   <div class="form-group">
     <label for="nameofevent">Event Name</label>
-    <input type="text" class="form-control" value="<?php echo $row['eventname'] ?>" id="nameofevent" aria-describedby="emailHelp" placeholder="Event Name" name="eventname">
-    
+    <input type="text" name="nameofevent" class="form-control" value="<?php echo $row['nameofevent'] ?>" id="nameofevent" placeholder="Enter event name">
   </div>
-
-  <div class="form-group ">
-    <label for="eventDate">Event Date</label>
-    <input type="date" class="form-control" value="<?php echo $row['eventDate'] ?>" id="eventDate" name="eventDate"
-        aria-describedby="emailHelp" placeholder="Select Event Date" required>
-</div>
-
-
-<div class="form-group ">
-    <label for="eventTime">Event Time</label>
-    <input type="time" class="form-control" value="<?php echo $row['eventTime'] ?>" id="eventTime" name="eventTime"
-        aria-describedby="emailHelp" placeholder="Enter Event Time" required>
-</div>
-
-<div class="form-group ">
-    <label for="eventVenue">Event Venue</label>
-    <input type="text" class="form-control" value="<?php echo $row['eventVenue'] ?>" id="eventVenue" name="eventVenue"
-        aria-describedby="emailHelp" placeholder="Enter Event Venue" required>
-</div>
-
-<div class="form-group ">
-    <label for="coordinatorName">Coordinator's Name</label>
-    <input type="text" class="form-control" value="<?php echo $row['coordinatorName'] ?>" id="coordinatorName" name="coordinatorName"
-        aria-describedby="emailHelp" placeholder="Enter Coordinator's Name" required>
-</div>
-
-<div class="form-group ">
-    <label for="eventBudget">Event Budget</label>
-    <input type="text" class="form-control" value="<?php echo $row['Event Budget'] ?>" id="eventBudget" name="eventBudget"
-        aria-describedby="emailHelp" placeholder="Enter Event Budget" required>
-</div>
-
-
   
-  <button type="submit" class="btn btn-primary" name="update">Update Data</button>
-</form>
-</div>
-
+  <div class="form-group">
+    <label for="eventDate">Date</label>
+    <input type="date" name="eventDate" class="form-control" value="<?php echo $row['eventDate'] ?>" id="eventDate" placeholder="Enter date">
   </div>
+
+  <div class="form-group">
+    <label for="eventTime">Time</label>
+    <input type="time" name="eventTime" class="form-control" value="<?php echo $row['eventTime'] ?>"  id="eventTime" placeholder="Enter time">
+  </div>
+
+  <div class="form-group">
+    <label for="eventVenue">Venue</label>
+    <input type="text" name="eventVenue" class="form-control" value="<?php echo $row['eventVenue'] ?>" id="eventVenue" placeholder="Enter venue">
+  </div>
+
+  <div class="form-group">
+    <label for="coordinatorName">Name</label>
+    <input type="text" name="coordinatorName" class="form-control" value="<?php echo $row['coordinatorName'] ?>"  id="coordinatorName" placeholder="Enter name">
+  </div>
+
+
+  <div class="form-group">
+    <label for="eventBudget">Budget</label>
+    <input type="text" name="eventBudget" class="form-control" value="<?php echo $row['eventBudget'] ?>" id="eventBudget" placeholder="Enter budget">
+  </div>
+
+<button type="submit" name="update" class="btn btn-primary"> Update Data </button>
+
+<a href = "event-manager.php" class="btn btn-danger"> CANCEL </a>
+</form>
+
+<?php
+if(isset($_POST['update']))
+{
+$nameofstudent = $_POST['nameofstudent'];
+$nameofevent = $_POST['nameofevent'];
+$eventDate = $_POST['eventDate'];
+$eventTime = $_POST['eventTime'];
+$eventVenue = $_POST['eventVenue'];
+$coordinatorName = $_POST['coordinatorName'];
+$eventBudget = $_POST['eventBudget'];
+
+$query = "UPDATE event140  SET  nameofstudent='$nameofstudent' , nameofevent='$nameofevent' , eventDate= '$eventDate' , eventTime = '$eventTime' , eventVenue = '$eventVenue' , coordinatorName= '$coordinatorName' , eventBudget = '$eventBudget'  WHERE sno='$sno'   ";
+
+$query_run = mysqli_query($connection , $query);
+
+if($query_run)
+{
+  echo '<script> alert("Data Updated"); </script>';
+header("location: event-manager.php");
+}
+else{
+  echo '<script> alert("Data Not Updated"); </script>';
+}
+}
+
+?>
+
+
 </div>
 
+</div>
 
-     <?php
-    }
-  }
-  else
-  {
-    echo '<script> alert("No Record Found"); <script>';
-  }
+<?php
+   }
+}
+else{
+  echo '<script> alert("NO RECORD FOUND"); </script>';
+}
+  
+  
   ?>
+
 
 
 
