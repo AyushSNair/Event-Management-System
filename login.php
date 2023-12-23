@@ -42,8 +42,8 @@ else{
         width: 100%;
         height: 100vh;
         background-image: linear-gradient(
-            rgba(0, 0, 50, 0.8),
-            rgba(0, 0, 50, 0.8)
+          rgba(140, 140, 218, 0.8),
+            rgba(3, 3, 38, 0.8)
           ),
           url(Corporate-Event-Planning.jpg);
         background-position: center;
@@ -58,7 +58,7 @@ else{
 }
 
 .semester-class{
-  width: 645px;
+  width: 448px;
 }
 
 .nav-link{
@@ -96,6 +96,69 @@ else{
 .bold-text{
   color: white;
 }
+
+.form-class{
+  padding-left: 400px;
+ }
+ footer{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right:0;
+      background-color: #111;
+      height: auto;
+      width: 100vw;
+      font-family: "Open Sans";
+      padding-top: 1px;
+      color: #fff;
+    }
+
+    .footer-content{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    text-align: center;
+    }
+
+    .footer-content h3{
+      font-size: 1.8rem;
+      font-weight: 400;
+      text-transform: capitalize;
+      line-height: 3rem;
+    }
+
+    .footer-content p{
+      max-width: 500px;
+      margin: 10px auto;
+      line-height: 28px;
+      font-size: 14px;
+    }
+
+    .footer-bottom{
+      background-color: #000;
+      width: 100vw;
+      padding: 20px 0;
+      text-align: center;
+      height: 30px;
+      padding: 5px;
+    }
+
+    .footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    }
+
+    .footer-bottom span{
+      text-transform: uppercase;
+      opacity: .4;
+      font-weight: 200;
+    }
+
+    .about-class{
+    color: white;
+    }
 </style>
 
   </head>
@@ -139,7 +202,7 @@ if($showError){
 
 <h1 class="text-center" >Login Below</h1>
 
-<form  action="/loginsystem/login.php" method="post">
+<form  action="/loginsystem/login.php" method="post" class="form-class">
   <div class="form-group col-md-6 ">
     <label for="username"><b class="bold-text">Username</b></label>
     <input type="text" class="form-control" id="username"  name="username" aria-describedby="emailHelp" placeholder="Enter Username">
@@ -173,7 +236,15 @@ if($showError){
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
-</div>
+<footer>
+  <div class="footer-content">
+    <h3><a class="about-class" href="about-us.html" target="_blank">About Us</a></h3>
+  </div>
+
+  <div class="footer-bottom">
+    <p><span>Department of </span>INFORMATION TECHNOLOGY</p>
+  </div>
+</footer>
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
