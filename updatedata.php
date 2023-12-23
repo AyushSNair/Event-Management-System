@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['update']) || $_SESSION['update']!=true){
+  
+}
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,6 +20,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Update Data</title>
+  <style>
+.creator-class{
+  margin-top: 10px;
+  margin-right: 150px;
+  width: 250px;
+}
+
+.container-class{
+margin-left 0px;
+}
+
+.font{
+  font-family: Roboto;
+}
+  </style>
+  
   </head>
   <body>
   <?php
@@ -75,7 +102,14 @@ if($query_run)
 
 <button type="submit" name="update" class="btn btn-primary"> Update Data </button>
 
+
 <a href = "event-manager.php" class="btn btn-danger"> CANCEL </a>
+
+<div class="container-class">
+  <h5 class="creator-class">
+   <b class="font"> Event Created By : </b>@<?php  echo$_SESSION['username']?>
+  </h5>
+</div>
 </form>
 
 <?php
