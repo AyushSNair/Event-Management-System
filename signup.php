@@ -44,7 +44,8 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign-Up Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<style>
+#CSS STYLES
+    <style>
 body {
         background-color: whitesmoke;
         width: 100%;
@@ -106,6 +107,7 @@ align-items: center;
 
   </head>
   <body>
+    #NAVIGATION BAR
 <div class=sign-nav-flex> 
   <ul class="nav">
   <li class="nav-item">
@@ -121,6 +123,7 @@ align-items: center;
         </li>
   </ul>
 <p></p>
+  #ALERT MESSAGES
   <?php
   if($showAlert){
   echo' 
@@ -140,7 +143,7 @@ if($showError){
 ?>
 </div>
 
- 
+ #SIGN-UP FORM
 <div class="container">
 
 <h1 class="text-center" >Sign Up To Our Website Now!</h1>
